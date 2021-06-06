@@ -1,0 +1,94 @@
+.img1 {
+position: relative;
+margin-top:50px;
+width:100%;
+height: 650px;
+background-repeat: no-repeat;
+background-size: cover;
+
+}
+
+.container {
+    padding: 2rem 0rem;
+  }
+  
+  h4 {
+    margin: 2rem 0rem 1rem;
+  }
+  
+  .table-image {
+      vertical-align: middle;
+  }
+
+.shape{
+    display: inline-block;
+    margin-left:100px;
+    margin-right: 200px;
+    width: 48px;
+    height: 48px;
+    text-indent: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background-color: #0000ff;
+    box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);   
+}
+
+.doctors {
+    position: relative;
+    text-align: center;
+    top: 100%;
+    margin-top:100px;
+    margin-bottom: 100px;
+}
+
+.navbar-nav > li{
+    padding-left:10px;
+    padding-right:10px;
+    margin-left:60px;
+}
+.doctor {
+    font-size:50px;
+    margin-top:65px;
+    padding-top: 30px;
+    color:black;
+}
+.bg-primary{
+margin-top:50px;
+padding-top:5px;
+}
+.ss >li{
+    padding-left:10px;
+    padding-right:10px;
+    margin-left:10px;
+}
+
+.position {
+    margin-bottom: 20px;
+    margin-top : 400px;
+}
+
+.edit {
+    float:right;
+    background-repeat:no-repeat	;
+    right:0px;
+    margin-right: 10px;
+}
+
+.table-striped{
+    margin-top:100px;
+}
+
+.card{
+  display: block;
+  width:50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:100px;
+}
+.card-body{
+
+    width :650px;
+}
+
+
