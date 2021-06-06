@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Cardiology</title>
+    <link rel="stylesheet" href="/static/styles/mainStyle.css">
+</head>
+
+<body>
+
+  {% for message in get_flashed_messages() %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %}
+
+  <nav class="navbar navbar-expand-lg fixed-top bg-dark ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/Home">
+        <img src="/static/Untitled-2.png" alt="" width="50" height="34">
+        Cardiology
+      </a>
+        <ul class="navbar-nav me-auto mb-1 mb-lg-0.5">
+          <li class="nav-item">
+            <a class="navbar-brand" href="/Home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="navbar-brand" href="/FindaDoctor">Find a Doctor</a>
+          </li>
+          <li class="nav-item">
+            <a class="navbar-brand" href="/My_Appointments">My Appointment</a>
+          </li>
+        </ul>
+        <a class="navbar-brand" href="/Signin">
+        <span class="nav-item">
+          {% if session['loggedin'] in session %}
+          <div class="dropdown">
+          <img src="/static/login-icon-png-0.png" alt="" width="50" height="34">
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="#">profile</a></li>
+              <li>
+                <a class="dropdown-item" href="{{url_for('logout')}}">Signout</a></li>
+            </ul>
+          </div>
+        {% else %}
+          Sign in
+        {% endif %}
+        </span>
+        </a>
+    </div>
+  </nav>
+
+
+<div class="img1" style="background-image: url('/static/DOCTOR.jpg');">
+
+
+  <div class="doctors rowss">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Doctor's Name</th>
+                <th scope="col">Doctor's Age</th>
+                <th scope="col">Doctor's Gander</th>
+                <th scope="col">Doctor's PhoneNumber</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for Doctor in Doctors %}
+              <tr>
+                <td>{{Doctor.name}}</td>
+                <td>{{Doctor.Age}}</td>
+                <td>{{Doctor.gander}}</td>
+                <td>{{Doctor.PhoneNumber}}</td>>
+                <td>
+                <form action="{{url_for('delete_doctor',id=Doctor.DSSN)}}" method="post">
+                <button type="button" class="btn btn-danger">Delete</button>
+                </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+<div class="position">
+    <form id="form" action="/addDoctor">
+  <div class="d-grid gap-1 col-6 mx-auto">
+    <label for="fname">Add Doctor's Name:</label><br>
+    <input type="text" id="name" name="fname"><br>
+    <label for="fname">Add Doctor's Age:</label><br>
+    <input type="text" id="name" name="Age"><br>
+    <label for="fname">Add Doctor's Gander:</label><br>
+    <input type="text" id="name" name="Gander"><br>
+    <label for="fname">Add Doctor's Phone:</label><br>
+    <input type="text" id="name" name="Phone"><br>
+    <button class="btn btn-primary" type="submit">Add a Doctor</button>
+  </div>
+  </form>
+</div>
+
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+    <script src="/static/js/app.js"></script>
+</html>

@@ -1,0 +1,68 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Cardiology</title>
+    <link rel="stylesheet" href="/static/styles/Register.css">
+</head>
+
+<body>
+
+    <div>
+        <form action="http://127.0.0.1:5000/register" method="post">
+          <div class="reg-box">
+            <h1>Sign up</h1>
+            <div class="textbox">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="SSN" name="SSN" id="SSN" required />
+            </div>
+      
+            <div class="textbox">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" name="psw" id="psw" required />
+            </div>
+      
+            <div class="textbox">
+              <i class="fas fa-lock"></i>
+              <input type="password " placeholder="Repeat password" name="psw-repeat" id="psw-repeat" required />
+            </div>
+      
+            <div>
+              <label>
+                <input type="checkbox" name="flag" value="yes" /> Are you a
+                doctor?
+              </label>
+            </div>  
+            <input type="submit" class="btn" value="Register" />
+      
+              <div class="entry-content" itemprop="description">
+                <a
+                  class="button color-simple"
+                  href="/Home"
+                  >
+              </a>
+              </div>
+      
+              <div class="entry-content2" itemprop="description">
+                <a
+                  class="button color-simple"
+                  href="/Signin"
+                  >
+                </a>
+              </div>
+            </div>
+      
+      
+      
+          </div>
+          
+          
+          <form>
+          </div>
+
+
+</body>
+
+</html>
