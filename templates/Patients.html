@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Cardiology</title>
+    <link rel="stylesheet" href="/static/styles/mainStyle.css">
+</head>
+
+<body>
+  
+  
+  
+  <nav class="navbar fixed-top navbar-expand-md bg-dark">
+      <div class="container-fluid" id="collapse_target">
+        <a class="navbar-brand" href="/Home">
+          <img src="/static/Untitled-2.png" alt="" width="50" height="34" />
+          Cardiology
+        </a>
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="navbar-brand" href="/Home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="navbar-brand" href="/FindaDoctor">Find a Doctor</a>
+          </li>
+          <li class="nav-item">
+            <a class="navbar-brand" href="/Patients">Patients</a>
+          </li>
+          <li class="nav-item">
+            <a class="navbar-brand" href="/Contact">Contact Us</a>
+          </li>
+        </ul>
+        <a class="navbar-brand" href="#">
+          <span class="nav-item">
+            {% if session['loggedin'] == true %}
+           
+                  
+                  <li class="nav-item">
+            <a class="navbar-brand" href="{{url_for('logout')}}">Sign out</a>
+          </li>
+                
+              </ul>
+            </div>
+          </a>
+          {% else %}
+          <a class="navbar-brand" href="/Signin">  Sign in </a>
+          {% endif %}
+           
+          </span>
+        </a>
+      </div>
+    </nav>
+
+  <div class="doctors rowss">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Patient's Name</th>
+                <th scope="col">Patient's Age</th>
+                <th scope="col">Patient's Gander</th>
+                <th scope="col">Patient's PhoneNumber</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for Patient in Patients %}
+              <tr>
+              {% for l in Patient[1:] %}
+              <td>{{l}}</td>
+              {%endfor%}
+                <td>
+                  <form
+                        action="{{url_for('deletePatient',id=Patient[0])}}"
+                        method="post"
+                      >
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="submit" value="Delete" class="btn btn-danger">
+                </form>
+                </td>
+              </tr>
+              {% endfor %}
+              {% for message in get_flashed_messages(category_filter=["category3"]) %}
+              <div class="alert alert-danger box2" role="alert">{{message}}</div>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="position">
+      {% for message in get_flashed_messages(category_filter=["category4"]) %}
+      <div class="alert alert-danger box2" role="alert">{{message}}</div>
+      {% endfor %}
+    <form id="form" action="{{url_for('addPatient')}}" method="POST">
+  <div class="d-grid gap-1 col-6 mx-auto">
+    <label for="Pssn">Add Patient's SSN:</label><br>
+    <input type="text" id="name" name="Pssn"><br>
+    <label for="fname">Add Patient's Name:</label><br>
+    <input type="text" id="name" name="fname"><br>
+    <label for="Age">Add Patient's Age:</label><br>
+    <input type="text" id="name" name="Age"><br>
+    <label for="Gender">Add Patient's Gender:</label><br>
+    <input type="text" id="name" name="Gender"><br>
+    <label for="Phone">Add Patient's Phone:</label><br>
+    <input type="text" id="name" name="Phone"><br>
+    <button class="btn btn-primary" type="submit">Add a Patient</button>
+  </div>
+  </form>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+</html>
